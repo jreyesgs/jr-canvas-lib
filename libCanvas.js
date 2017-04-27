@@ -36,9 +36,27 @@ var toRadians = function(degrees){
   let radians = (Math.PI/180)*degrees
   return radians;
 }
+
+var rUp = 0;
+var gUp = 0;
+var bUp = 0;
+var r = 0;
+var g = 0;
+var b = 0;
+
+var infiniteColor = function(){
+  rUp = (r == 255 || r == 0)? !rUp : rUp;
+  gUp = (g == 255 || g == 0)? !gUp : gUp;
+  bUp = (b == 255 || b == 0)? !bUp : bUp;
+  r+=(rUp)?1*(-1):(1);
+  g+=(gUp)?1*(-1):(1);
+  b+=(bUp)?1*(-1):(1);
+  return "rgb("+r+","+g+","+b+")";
+}
+
 //arc(x, y, radius, startAngle, endAngle, anticlockwise)
 //radians = (Math.PI/180)*degrees
-// 
+//
 // initialPoint = top, left
 //
 // radius
