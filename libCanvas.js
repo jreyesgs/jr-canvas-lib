@@ -32,6 +32,20 @@ var circlePoint = function(ra, angle, left, top){
   return {"_x": x, "_y": y};
 }
 
+var random = function(num1, num2){
+  if(num1 && num2){
+    if(num1 >=num2){
+      console.log("Error: El numero inicial es mayor que el final");
+      return null;
+    }else{
+      return Math.round(Math.random()*(num2 - num1)) + num1;
+    }
+  }else{
+    console.log("Error: Esta función espera dos parámetros");
+    return null;
+  }
+}
+
 var toRadians = function(degrees){
   let radians = (Math.PI/180)*degrees
   return radians;
