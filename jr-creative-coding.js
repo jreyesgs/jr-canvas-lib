@@ -33,6 +33,21 @@ var circlePoint = function(ra, angle, left, top){
   return {"_x": x, "_y": y};
 }
 
+/* Redondea un número incluidos sus cecimales si se especifica*/
+var round = function(num, decimals){
+  if(typeof num === 'number'){
+    if(typeof decimals === 'number' && decimals > 0){
+        var multi = Math.pow(10,parseInt(decimals));
+    }else{
+      var multi = 1;
+    }
+    return Math.round(num*multi)/multi;
+  }else{
+    console.log("Error: Se esperaba un número");
+    return null;
+  }
+}
+
 /* Devuelve un número aleatoria entres las dos cifras dadas, se puede especificas el número de decimales */
 var random = function(num1, num2, decimals){
   if((typeof num1 === 'number') && typeof num2 === 'number'){
@@ -45,7 +60,7 @@ var random = function(num1, num2, decimals){
       console.log("Error: El numero inicial es mayor que el final");
       return null;
     }else{
-      return Math.round((Math.random()*(num2 - num1) + num1)*multi)/multi;
+      return round(Math.random()*(num2 - num1) + num1, decimals);
     }
   }else{
     console.log("Error: Esta función espera dos parámetros");
