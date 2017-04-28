@@ -26,19 +26,26 @@ var drawCicle = function(ctx, x, y, radius, start, end, strokeColor, fillColor){
   ctx.stroke();
 }
 
+/* Devuelve las cordenadas x,y del punto de la circunferencia que corresponde con el angulo especificado */
 var circlePoint = function(ra, angle, left, top){
-  y = ra * Math.sin(angle) + top;
   x = ra * Math.cos(angle) + left;
+  y = ra * Math.sin(angle) + top;
   return {"_x": x, "_y": y};
 }
 
-var random = function(num1, num2){
-  if(num1 && num2){
+/* Devuelve un número aleatoria entres las dos cifras dadas, se puede especificas el número de decimales */
+var random = function(num1, num2, decimals){
+  if((typeof num1 === 'number') && typeof num2 === 'number'){
+    if(typeof decimals === 'number' && decimals > 0){
+      var multi = Math.pow(10,parseInt(decimals));
+    }else{
+      var multi = 1;
+    }
     if(num1 >=num2){
       console.log("Error: El numero inicial es mayor que el final");
       return null;
     }else{
-      return Math.round(Math.random()*(num2 - num1)) + num1;
+      return Math.round((Math.random()*(num2 - num1) + num1)*multi)/multi;
     }
   }else{
     console.log("Error: Esta función espera dos parámetros");

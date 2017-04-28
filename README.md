@@ -1,1 +1,1 @@
-# jr-canvas-lib
+# jr-creative-coding
