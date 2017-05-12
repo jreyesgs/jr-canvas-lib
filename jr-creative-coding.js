@@ -33,7 +33,7 @@ var circlePoint = function(ra, angle, left, top){
   return {"_x": x, "_y": y};
 }
 
-/* Redondea un número incluidos sus cecimales si se especifica*/
+/* Redondea un número incluidos sus cecimales si se especifican*/
 var round = function(num, decimals){
   if(typeof num === 'number'){
     if(typeof decimals === 'number' && decimals > 0){
@@ -48,7 +48,7 @@ var round = function(num, decimals){
   }
 }
 
-/* Devuelve un número aleatoria entres las dos cifras dadas, se puede especificas el número de decimales */
+/* Devuelve un número aleatoria entre las dos cifras dadas, se puede especificas el número de decimales */
 var random = function(num1, num2, decimals){
   if((typeof num1 === 'number') && typeof num2 === 'number'){
     if(typeof decimals === 'number' && decimals > 0){
@@ -68,10 +68,17 @@ var random = function(num1, num2, decimals){
   }
 }
 
+/* Para pasar grados a radianes*/
 var toRadians = function(degrees){
   let radians = (Math.PI/180)*degrees
   return radians;
 }
+
+
+/*
+  genera colores de forma infinita avanzando el la gama RGB hasta 255 y vuelta al cero,
+  la gama de colores que devuelve depende del color inicla definido en las varieblaes r,g,b.
+*/
 
 var rUp = 0;
 var gUp = 0;
@@ -99,6 +106,21 @@ var infiniteColor = function(){
 //
 // numVertex
 
+/* Pasa un color Hexadecimal a RGB */
+var hexa2RGB = function(color){
+  color = color.indexOf("#") >= 0 ? color.substring(1, color.length) : color;
+  var longColor = color.length;
+  if (longColor > 6 || longColor < 3) {
+    console.log("El número no tiene el formato correcto");
+    return null;
+  }else{
+    var r = parseInt(color.substring(0,2), 16);
+    var g = parseInt(color.substring(2,4), 16);
+    var b = parseInt(color.substring(4,6), 16);
+    console.log("rgb("+r+","+g+","+b+")");
+    return [r,g,b];
+  }
+}
 
 /* Suma el porcentaje indicado a un color (RR, GG o BB) hexadecimal para aclararlo */
 var addLight = function addLight(color, amount) {
@@ -112,6 +134,7 @@ var addLight = function addLight(color, amount) {
 var lighten = function lighten(color, amount) {
   color = color.indexOf("#") >= 0 ? color.substring(1, color.length) : color;
   amount = parseInt(255 * amount / 100);
+  var rgbColor = hexa2RGB(color)
   return color = "#" + addLight(color.substring(0, 2), amount) + addLight(color.substring(2, 4), amount) + addLight(color.substring(4, 6), amount);
 };
 
