@@ -2,23 +2,23 @@
 
 Funciones diponibles:
 
-##hexa2RGB
+## hexa2RGB
 Para pasar colores hexadecimales a RGB. Devuelve un array [RR,GG,BB].
 
-##toRadians
+## toRadians
 Para pasar de grados a radianes, muy útil para trabajar con circulos.
 
-#random
+## random
 Devuelve un número aleatoria entre las dos cifras dadas, se puede especificas el número de decimales.
 
-##round
+## round
 Redondea un número incluidos sus cecimales si se especifican.
 
-##circlePoint
+## circlePoint
 Devuelve las cordenadas x,y del punto de la circunferencia que corresponde con el angulo especificado.
 
-##lighten
+## lighten
 Aclara un color hexadecimal de 6 caracteres #RRGGBB segun el porcentaje indicado.
 
-##darken
+## darken
 Oscurece un color hexadecimal de 6 caracteres #RRGGBB segun el porcentaje indicado.
