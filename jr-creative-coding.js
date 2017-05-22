@@ -152,3 +152,12 @@ var darken = function darken(color, amount) {
   amount = parseInt(255 * amount / 100);
   return color = "#" + subtractLight(color.substring(0, 2), amount) + subtractLight(color.substring(2, 4), amount) + subtractLight(color.substring(4, 6), amount);
 };
+
+/* Pasa una cadena de texto a binario */
+var cadena ="Hola me llamo Jose";
+cadena = cadena.split(" ")
+nuevac = cadena.map(function(w){
+  p = parseInt(w, 32)
+  return p.toString(2)
+})
+nuevac.join("");
